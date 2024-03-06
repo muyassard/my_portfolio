@@ -1,48 +1,155 @@
-import axios from "axios";
+import { Anchor, Button } from 'antd';
+import { FaGithub, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
+
+import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
+import Marquee from 'react-fast-marquee';
 
 const http = axios.create({
-  baseURL: "https://api.github.com/users/muyassard",
+  baseURL: 'https://api.github.com/users/muyassard/repos'
 });
-const userData = () => {
-  http
-    .get("")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-};
-// userData();
 const Main: React.FC = () => {
+  interface Repo {
+    name: string;
+    html_url: string;
+  }
+
+  const repos = useRef<HTMLDivElement>(null);
+  const [repoList, setRepoList] = useState<Repo[]>([]);
+
+  useEffect(() => {
+    http
+      .get('')
+      .then(response => {
+        const res: Repo[] = response.data;
+        console.log('data: ', res);
+        setRepoList(res);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    repoList.forEach(repo => {
+      console.log(repo);
+      const repoElement = document.createElement('a');
+      repoElement.className = 'bg-blue-300 p-5 border rounded-lg mr-10 cursor-pointer';
+      repoElement.setAttribute('href', repo.html_url);
+      repoElement.setAttribute('target', '_blank');
+      repoElement.textContent = repo.name;
+      // repos.current?.appendChild(repoElement);
+      const doc = document.querySelector('.rfm-marquee')!;
+      doc.appendChild(repoElement);
+    });
+  }, [repoList]);
+
   return (
-    <>
-      <div className="h-[130px] relative text-white">
-        <svg
-          className="absolute -z-10"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path
-            fill="#79E0EE"
-            fill-opacity="1"
-            d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,192C672,203,768,181,864,176C960,171,1056,181,1152,186.7C1248,192,1344,192,1392,192L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-          ></path>
-        </svg>
-        <div className=" flex pt-5 items-center justify-around text-white font-bold text-3xl">
-          <div className="">Muyassar</div>
-          <div className="">Frontend Dev</div>
+    <div className="pt-[.1px] ">
+      <nav
+        id="home"
+        className="fixed shadow-md flex py-5 px-16 z-50 w-full bg-[#efed40]  items-center justify-between"
+      >
+        <div className="flex gap-2">
+          <div
+            className="font-bold text-2xl bg-gradient-to-r from-blue-600 via-green-500
+         to-indigo-400 inline-block bg-clip-text text-transparent"
+          >
+            muyassar
+          </div>
+          <img
+            className="w-10 h-10 rounded-full"
+            src="https://avatars.githubusercontent.com/u/127185125?v=4"
+            alt=""
+          />
+        </div>
+        <Anchor
+          className="flex gap-10 text-blue-200  "
+          direction="horizontal"
+          items={[
+            {
+              key: 'home',
+              href: '#home',
+              title: 'home'
+            },
+            {
+              key: 'about',
+              href: '#about',
+              title: 'about'
+            },
+            {
+              key: 'project',
+              href: '#project',
+              title: 'project'
+            }
+          ]}
+        />
+
+        <div className="flex items-center gap-10">
+          <Button className="border-none bg-blue-400 text-white">
+            <a type="tel" href="tel:+998903280938">
+              Contact
+            </a>
+          </Button>
+          <a target="_blank" href="https://github.com/muyassard">
+            <FaGithub className="text-2xl" />
+          </a>
+          <a target="_blank" href="https://twitter.com/muyassar___19">
+            <FaTwitter className="text-2xl" />
+          </a>
+          <a target="_blank" href="https://t.me/MDS328">
+            <FaTelegramPlane className="text-2xl" />
+          </a>
+        </div>
+      </nav>
+      <div className=" section px-16 flex items-center  justify-around">
+        <div className="">
+          <div className="text-5xl text-[#79E0EE]">
+            <div className="flex gap-2">
+              <div className="">Hi </div>
+              <img
+                className="w-10"
+                src="https://raw.githubusercontent.com/Bharath-designer/bharath-designer/main/assets/wave.gif"
+                alt=""
+              />
+            </div>
+            I'm Muyassar <br />
+            Frontend Developer
+          </div>
+        </div>
+        <div className="">
+          <img
+            className="w-[400px]"
+            src="https://camo.githubusercontent.com/e7deff99a9dfda9b517a209dffa8eb00716dd1ae29b292ea64417ea66399d3a4/68747470733a2f2f696d672e6672656570696b2e636f6d2f667265652d766563746f722f796f756e672d776f6d616e2d757365732d636f6d70757465722d776f726b2d7265647563652d696e66656374696f6e5f313135302d33343938352e6a70673f773d37343026743d73743d313730383538363732307e6578703d313730383538373332307e686d61633d38383436653636616631386339303966383834376138326265633766623635356165313237333430336131636464653435663465313663613564383465623036"
+            alt=""
+          />
+        </div>
+      </div>
+      <div className="section  py-5">
+        <div className="text-center font-bold text-4xl pb-5">My Tech Stack</div>
+        <div className="flex gap-5 flex-wrap">
+          <img src="./images/html.png" alt="" />
+          <img src="./images/css.png" alt="" />
+          <img className="w-[120px]" src="./images/js.png" alt="" />
+          <img className="w-[120px]" src="./images/sass.svg" alt="" />
+          <img className="w-[120px]" src="./images/bootstrap.svg" alt="" />
+          <img src="./images/types.svg" alt="" />
+          <img src="./images/react.png" alt="" />
+          <img src="./images/tail.svg" alt="" />
+          <img src="./images/postman.svg" alt="" />
+          <img className="w-[120px]" src="./images/ant-design.svg" alt="" />
         </div>
       </div>
       <div className="">
-        <div className="">
-          <div className="text-[#98EECC] text-3xl font-bold">
-            Hello I'm Muyassar
-          </div>
-          <div className="text-[#79E0EE] text-4xl">Frontend Developer</div>
-        </div>
+        <div className="text-center font-bold text-4xl pb-5">My repos</div>
+        <Marquee
+          pauseOnHover
+          speed={10}
+          ref={repos}
+          className="transition duration-700 ease-in-out"
+        ></Marquee>
       </div>
-    </>
+    </div>
   );
 };
 
