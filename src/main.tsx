@@ -69,7 +69,7 @@ const Main: React.FC = () => {
     <div className="pt-[.1px] ">
       <nav
         id="#"
-        className="fixed shadow-md flex py-5 px-16 z-50 w-full bg-[#efed40]  items-center justify-between"
+        className="fixed shadow-md flex py-5 px-16 z-50 w-full bg-white  items-center justify-between"
       >
         <div className="flex gap-2">
           <div
