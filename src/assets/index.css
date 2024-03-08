@@ -8,7 +8,12 @@ html {
 }
 @layer components {
   .section {
-    height: 100vh;
+    height: 100svh;
     scroll-snap-align: center;
+  }
+  .display {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 }

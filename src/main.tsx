@@ -1,5 +1,13 @@
-import { Anchor, Button } from 'antd';
-import { FaGithub, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
+import { Anchor, Button, Card } from 'antd';
+import {
+  FaDice,
+  FaGithub,
+  FaLocationArrow,
+  FaMailBulk,
+  FaPhoneAlt,
+  FaTelegramPlane,
+  FaTwitter
+} from 'react-icons/fa';
 
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
@@ -16,6 +24,19 @@ const Main: React.FC = () => {
 
   const repos = useRef<HTMLDivElement>(null);
   const [repoList, setRepoList] = useState<Repo[]>([]);
+
+  const tech = [
+    './images/html.svg',
+    './images/css.svg',
+    './images/js.svg',
+    './images/sass.svg',
+    './images/bootstrap.svg',
+    './images/types.svg',
+    './images/react.svg',
+    './images/tail.svg',
+    './images/postman.svg',
+    './images/ant-design.svg'
+  ];
 
   useEffect(() => {
     http
@@ -39,7 +60,7 @@ const Main: React.FC = () => {
       repoElement.setAttribute('target', '_blank');
       repoElement.textContent = repo.name;
       // repos.current?.appendChild(repoElement);
-      const doc = document.querySelector('.rfm-marquee')!;
+      const doc = document.querySelector('.rfm-initial-child-container')!;
       doc.appendChild(repoElement);
     });
   }, [repoList]);
@@ -47,7 +68,7 @@ const Main: React.FC = () => {
   return (
     <div className="pt-[.1px] ">
       <nav
-        id="home"
+        id="#"
         className="fixed shadow-md flex py-5 px-16 z-50 w-full bg-[#efed40]  items-center justify-between"
       >
         <div className="flex gap-2">
@@ -64,7 +85,6 @@ const Main: React.FC = () => {
           />
         </div>
         <Anchor
-          className="flex gap-10 text-blue-200  "
           direction="horizontal"
           items={[
             {
@@ -73,14 +93,19 @@ const Main: React.FC = () => {
               title: 'home'
             },
             {
-              key: 'about',
-              href: '#about',
-              title: 'about'
+              key: 'myTechStack',
+              href: '#myTechStack',
+              title: 'myTechStack'
             },
             {
-              key: 'project',
-              href: '#project',
-              title: 'project'
+              key: 'repos',
+              href: '#repos',
+              title: 'repos'
+            },
+            {
+              key: 'projects',
+              href: '#projects',
+              title: 'projects'
             }
           ]}
         />
@@ -102,52 +127,104 @@ const Main: React.FC = () => {
           </a>
         </div>
       </nav>
-      <div className=" section px-16 flex items-center  justify-around">
-        <div className="">
-          <div className="text-5xl text-[#79E0EE]">
-            <div className="flex gap-2">
-              <div className="">Hi </div>
-              <img
-                className="w-10"
-                src="https://raw.githubusercontent.com/Bharath-designer/bharath-designer/main/assets/wave.gif"
-                alt=""
-              />
+      <div className="px-16">
+        <div id="home" className=" section  flex items-center  justify-around">
+          <div className="  flex flex-col gap-5">
+            <div className="text-5xl text-[#79E0EE]">
+              <div className="flex gap-2">
+                <div className="">Hi </div>
+                <img
+                  className="w-10"
+                  src="https://raw.githubusercontent.com/Bharath-designer/bharath-designer/main/assets/wave.gif"
+                  alt=""
+                />
+              </div>
+              I'm Muyassar <br />
+              Frontend Developer
             </div>
-            I'm Muyassar <br />
-            Frontend Developer
+            <span className="text-[#79E0EE] display hover:text-black cursor-pointer">
+              <FaPhoneAlt />
+              +998 90 328 09 38
+            </span>
+            <span className="text-[#79E0EE] display hover:text-black cursor-pointer">
+              <FaMailBulk />
+              <a href="mailto:muyassarsolijonova@gmail.com">Send email</a>
+            </span>
+            <span className="text-[#79E0EE] display hover:text-black cursor-pointer">
+              <FaLocationArrow />
+              Tashkent
+            </span>
+          </div>
+          <div className="">
+            <img
+              className="w-[400px]"
+              src="https://camo.githubusercontent.com/e7deff99a9dfda9b517a209dffa8eb00716dd1ae29b292ea64417ea66399d3a4/68747470733a2f2f696d672e6672656570696b2e636f6d2f667265652d766563746f722f796f756e672d776f6d616e2d757365732d636f6d70757465722d776f726b2d7265647563652d696e66656374696f6e5f313135302d33343938352e6a70673f773d37343026743d73743d313730383538363732307e6578703d313730383538373332307e686d61633d38383436653636616631386339303966383834376138326265633766623635356165313237333430336131636464653435663465313663613564383465623036"
+              alt=""
+            />
           </div>
         </div>
-        <div className="">
-          <img
-            className="w-[400px]"
-            src="https://camo.githubusercontent.com/e7deff99a9dfda9b517a209dffa8eb00716dd1ae29b292ea64417ea66399d3a4/68747470733a2f2f696d672e6672656570696b2e636f6d2f667265652d766563746f722f796f756e672d776f6d616e2d757365732d636f6d70757465722d776f726b2d7265647563652d696e66656374696f6e5f313135302d33343938352e6a70673f773d37343026743d73743d313730383538363732307e6578703d313730383538373332307e686d61633d38383436653636616631386339303966383834376138326265633766623635356165313237333430336131636464653435663465313663613564383465623036"
-            alt=""
-          />
+        <div id="myTechStack" className="section flex flex-col justify-center   ">
+          <div className="text-center font-bold text-4xl pb-10">My Tech Stack</div>
+          <div className="flex items-center gap-24">
+            <div className="w-[600px] leading-loose text-3xl text-indigo-400 font-bold">
+              My name is Muyassar <br /> I am 19 years old <br /> and I live in Tashkent
+            </div>
+
+            <div className="flex items-center gap-5 flex-wrap">
+              {tech.map(tech => {
+                return <img src={tech} alt="" />;
+              })}{' '}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="section  py-5">
-        <div className="text-center font-bold text-4xl pb-5">My Tech Stack</div>
-        <div className="flex gap-5 flex-wrap">
-          <img src="./images/html.png" alt="" />
-          <img src="./images/css.png" alt="" />
-          <img className="w-[120px]" src="./images/js.png" alt="" />
-          <img className="w-[120px]" src="./images/sass.svg" alt="" />
-          <img className="w-[120px]" src="./images/bootstrap.svg" alt="" />
-          <img src="./images/types.svg" alt="" />
-          <img src="./images/react.png" alt="" />
-          <img src="./images/tail.svg" alt="" />
-          <img src="./images/postman.svg" alt="" />
-          <img className="w-[120px]" src="./images/ant-design.svg" alt="" />
+        <div id="repos" className="">
+          <div className="text-center font-bold text-4xl pb-5">My repos</div>
+          <Marquee
+            pauseOnHover
+            speed={20}
+            ref={repos}
+            className="repos transition duration-700 ease-in-out"
+          ></Marquee>
         </div>
-      </div>
-      <div className="">
-        <div className="text-center font-bold text-4xl pb-5">My repos</div>
-        <Marquee
-          pauseOnHover
-          speed={10}
-          ref={repos}
-          className="transition duration-700 ease-in-out"
-        ></Marquee>
+        <div id="projects" className="transition-all section flex flex-col justify-center">
+          <div className="text-center font-bold text-4xl pb-5">My deployed project</div>
+          <div className="flex flex-wrap gap-5">
+            <a
+              href="https://dice-game-app-v1.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card
+                title="Dice game 🎲"
+                className="shadow-lg hover:bg-cyan-50"
+                style={{ width: 300 }}
+              >
+                <p>React</p>
+                <p>Tailwind</p>
+              </Card>
+            </a>
+            <a
+              href="https://unrivaled-bunny-7b4c8f.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card
+                title="figma in react"
+                className="shadow-lg hover:bg-cyan-50"
+                style={{ width: 300 }}
+              >
+                <p> React</p>
+                <p>Tailwind</p>
+              </Card>
+            </a>
+            <a href="https://sudoku-app-v1.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <Card title="sudoku" className="shadow-lg hover:bg-cyan-50" style={{ width: 300 }}>
+                <p> React</p>
+                <p>Tailwind</p>
+              </Card>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
