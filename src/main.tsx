@@ -69,7 +69,7 @@ const Main: React.FC = () => {
     <div className="pt-[.1px] ">
       <nav
         id="#"
-        className="fixed shadow-md flex py-5 px-16 z-50 w-full bg-white  items-center justify-between"
+        className="fixed flex-wrap gap-5 shadow-md flex py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-between"
       >
         <div className="flex gap-2">
           <div
@@ -127,10 +127,10 @@ const Main: React.FC = () => {
           </a>
         </div>
       </nav>
-      <div className="px-16">
+      <div className="px-16 lg:px-5">
         <div id="home" className=" section  flex items-center  justify-around">
           <div className="  flex flex-col gap-5">
-            <div className="text-5xl text-[#79E0EE]">
+            <div className="lg:text-2xl text-5xl text-[#79E0EE]">
               <div className="flex gap-2">
                 <div className="">Hi </div>
                 <img
@@ -165,7 +165,7 @@ const Main: React.FC = () => {
         </div>
         <div id="myTechStack" className="section flex flex-col justify-center   ">
           <div className="text-center font-bold text-4xl pb-10">My Tech Stack</div>
-          <div className="flex items-center gap-24">
+          <div className="flex items-center gap-24 md:flex-wrap">
             <div className="w-[600px] leading-loose text-3xl text-indigo-400 font-bold">
               My name is Muyassar <br /> I am 19 years old <br /> and I live in Tashkent
             </div>
