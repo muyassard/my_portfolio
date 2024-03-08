@@ -1,6 +1,5 @@
 import { Anchor, Button, Card } from 'antd';
 import {
-  FaDice,
   FaGithub,
   FaLocationArrow,
   FaMailBulk,
@@ -8,6 +7,8 @@ import {
   FaTelegramPlane,
   FaTwitter
 } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
@@ -49,6 +50,12 @@ const Main: React.FC = () => {
       .catch(error => {
         console.error('Error:', error);
       });
+    ///////////////////////
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+    AOS.refresh();
   }, []);
 
   useEffect(() => {
@@ -68,6 +75,7 @@ const Main: React.FC = () => {
   return (
     <div className="pt-[.1px] ">
       <nav
+        data-aos="zoom-in-down"
         id="#"
         className="fixed flex-wrap gap-5 shadow-md flex py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-between"
       >
@@ -129,7 +137,7 @@ const Main: React.FC = () => {
       </nav>
       <div className="px-16 lg:px-5">
         <div id="home" className=" section  flex items-center  justify-around">
-          <div className="  flex flex-col gap-5">
+          <div className=" flex flex-col gap-5" data-aos="fade-right">
             <div className="lg:text-2xl text-5xl text-[#79E0EE]">
               <div className="flex gap-2">
                 <div className="">Hi </div>
@@ -155,7 +163,7 @@ const Main: React.FC = () => {
               Tashkent
             </span>
           </div>
-          <div className="">
+          <div className="" data-aos="fade-left">
             <img
               className="w-[400px]"
               src="https://camo.githubusercontent.com/e7deff99a9dfda9b517a209dffa8eb00716dd1ae29b292ea64417ea66399d3a4/68747470733a2f2f696d672e6672656570696b2e636f6d2f667265652d766563746f722f796f756e672d776f6d616e2d757365732d636f6d70757465722d776f726b2d7265647563652d696e66656374696f6e5f313135302d33343938352e6a70673f773d37343026743d73743d313730383538363732307e6578703d313730383538373332307e686d61633d38383436653636616631386339303966383834376138326265633766623635356165313237333430336131636464653435663465313663613564383465623036"
@@ -166,11 +174,14 @@ const Main: React.FC = () => {
         <div id="myTechStack" className="section flex flex-col justify-center   ">
           <div className="text-center font-bold text-4xl pb-10">My Tech Stack</div>
           <div className="flex items-center gap-24 md:flex-wrap">
-            <div className="w-[600px] leading-loose text-3xl text-indigo-400 font-bold">
+            <div
+              data-aos="zoom-in-right"
+              className="w-[600px] leading-loose text-3xl text-indigo-400 font-bold"
+            >
               My name is Muyassar <br /> I am 19 years old <br /> and I live in Tashkent
             </div>
 
-            <div className="flex items-center gap-5 flex-wrap">
+            <div data-aos="zoom-in-left" className="flex items-center gap-5 flex-wrap">
               {tech.map(tech => {
                 return <img src={tech} alt="" />;
               })}{' '}
@@ -192,11 +203,12 @@ const Main: React.FC = () => {
             <a
               href="https://dice-game-app-v1.netlify.app"
               target="_blank"
+              data-aos="zoom-in"
               rel="noopener noreferrer"
             >
               <Card
                 title="Dice game 🎲"
-                className="shadow-lg hover:bg-cyan-50"
+                className="bg-gradient-to-r from-cyan-200 to-blue-200  shadow-lg  hover:scale-110	 transition-transform duration-500 "
                 style={{ width: 300 }}
               >
                 <p>React</p>
@@ -206,19 +218,29 @@ const Main: React.FC = () => {
             <a
               href="https://unrivaled-bunny-7b4c8f.netlify.app"
               target="_blank"
+              data-aos="zoom-in"
               rel="noopener noreferrer"
             >
               <Card
                 title="figma in react"
-                className="shadow-lg hover:bg-cyan-50"
+                className="bg-gradient-to-r from-cyan-200 to-blue-200 shadow-lg  hover:scale-110	 transition-transform duration-500"
                 style={{ width: 300 }}
               >
                 <p> React</p>
                 <p>Tailwind</p>
               </Card>
             </a>
-            <a href="https://sudoku-app-v1.netlify.app/" target="_blank" rel="noopener noreferrer">
-              <Card title="sudoku" className="shadow-lg hover:bg-cyan-50" style={{ width: 300 }}>
+            <a
+              href="https://sudoku-app-v1.netlify.app/"
+              target="_blank"
+              data-aos="zoom-in"
+              rel="noopener noreferrer"
+            >
+              <Card
+                title="sudoku"
+                className="bg-gradient-to-r from-cyan-200 to-blue-200 shadow-lg  hover:scale-110	 transition-transform duration-500"
+                style={{ width: 300 }}
+              >
                 <p> React</p>
                 <p>Tailwind</p>
               </Card>
