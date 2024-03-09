@@ -211,8 +211,7 @@ const Main: React.FC = () => {
             >
               <Card
                 title="Dice game 🎲"
-                className="bg-gradient-to-r from-cyan-200 to-blue-200  shadow-lg  hover:scale-110	 transition-transform duration-500 "
-                style={{ width: 300 }}
+                className="bg-gradient-to-r from-cyan-200 to-blue-200  shadow-lg w-[300px] md:w-[250px]  hover:scale-110	 transition-transform duration-500 "
               >
                 <p>React</p>
                 <p>Tailwind</p>
@@ -226,8 +225,7 @@ const Main: React.FC = () => {
             >
               <Card
                 title="figma in react"
-                className="bg-gradient-to-r from-cyan-200 to-blue-200 shadow-lg  hover:scale-110	 transition-transform duration-500"
-                style={{ width: 300 }}
+                className="bg-gradient-to-r from-cyan-200 to-blue-200  shadow-lg w-[300px] md:w-[250px]  hover:scale-110	 transition-transform duration-500 "
               >
                 <p> React</p>
                 <p>Tailwind</p>
@@ -241,8 +239,7 @@ const Main: React.FC = () => {
             >
               <Card
                 title="sudoku"
-                className="bg-gradient-to-r from-cyan-200 to-blue-200 shadow-lg  hover:scale-110	 transition-transform duration-500"
-                style={{ width: 300 }}
+                className="bg-gradient-to-r from-cyan-200 to-blue-200  shadow-lg w-[300px] md:w-[250px]  hover:scale-110	 transition-transform duration-500 "
               >
                 <p> React</p>
                 <p>Tailwind</p>
