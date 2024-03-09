@@ -77,7 +77,7 @@ const Main: React.FC = () => {
       <nav
         data-aos="zoom-in-down"
         id="#"
-        className="fixed flex-wrap gap-5 shadow-md flex py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-between"
+        className="fixed flex-wrap gap-5 shadow-md flex  py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-between"
       >
         <div className="flex gap-2">
           <div
@@ -89,7 +89,7 @@ const Main: React.FC = () => {
           <img
             className="w-10 h-10 rounded-full"
             src="https://avatars.githubusercontent.com/u/127185125?v=4"
-            alt=""
+            alt="girl"
           />
         </div>
         <Anchor
@@ -136,7 +136,10 @@ const Main: React.FC = () => {
         </div>
       </nav>
       <div className="px-16 lg:px-5">
-        <div id="home" className=" section  flex items-center  justify-around">
+        <div
+          id="home"
+          className=" section  flex md:flex-wrap md:mt-40 items-center  justify-around"
+        >
           <div className=" flex flex-col gap-5" data-aos="fade-right">
             <div className="lg:text-2xl text-5xl text-[#79E0EE]">
               <div className="flex gap-2">
@@ -171,7 +174,7 @@ const Main: React.FC = () => {
             />
           </div>
         </div>
-        <div id="myTechStack" className="section flex flex-col justify-center   ">
+        <div id="myTechStack" className="section md:h-full flex flex-col justify-center   ">
           <div className="text-center font-bold text-4xl pb-10">My Tech Stack</div>
           <div className="flex items-center gap-24 md:flex-wrap">
             <div
@@ -188,8 +191,8 @@ const Main: React.FC = () => {
             </div>
           </div>
         </div>
-        <div id="repos" className="">
-          <div className="text-center font-bold text-4xl pb-5">My repos</div>
+        <div id="repos" className="   flex flex-col justify-center ">
+          <div className="text-center font-bold text-4xl mb-20">My repos</div>
           <Marquee
             pauseOnHover
             speed={20}
@@ -199,7 +202,7 @@ const Main: React.FC = () => {
         </div>
         <div id="projects" className="transition-all section flex flex-col justify-center">
           <div className="text-center font-bold text-4xl pb-5">My deployed project</div>
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap justify-center gap-5">
             <a
               href="https://dice-game-app-v1.netlify.app"
               target="_blank"
