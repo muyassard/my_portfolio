@@ -4,7 +4,7 @@ import { Anchor } from 'antd';
 import { FaGithub, FaTelegramPlane, FaTwitter, FaPhoneAlt } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Header, Projects, Repos, TechStack } from './components';
+import { Header, Projects, TechStack } from './components';
 
 const Main: React.FC = () => {
   useEffect(() => {
@@ -21,7 +21,7 @@ const Main: React.FC = () => {
       <nav
         data-aos="zoom-in-down"
         id="#"
-        className="fixed flex-wrap gap-5 shadow-md flex  py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-between"
+        className="fixed flex-wrap gap-5 shadow-md flex  py-5 px-16 md:px-5 z-50 w-full bg-white  items-center justify-center"
       >
         <div className="flex gap-2">
           <div
@@ -36,33 +36,8 @@ const Main: React.FC = () => {
             alt="girl"
           />
         </div>
-        <Anchor
-          direction="horizontal"
-          items={[
-            {
-              key: 'home',
-              href: '#home',
-              title: 'home'
-            },
-            {
-              key: 'myTechStack',
-              href: '#myTechStack',
-              title: 'myTechStack'
-            },
-            {
-              key: 'repos',
-              href: '#repos',
-              title: 'repos'
-            },
-            {
-              key: 'projects',
-              href: '#projects',
-              title: 'projects'
-            }
-          ]}
-        />
 
-        <div className="flex items-center gap-10">
+        <div className="flex items-center  gap-10">
           <a target="_blank" rel="noreferrer" type="tel" href="tel:+998903280938">
             <FaPhoneAlt className="text-2xl" />
           </a>
@@ -76,11 +51,34 @@ const Main: React.FC = () => {
             <FaTelegramPlane className="text-2xl" />
           </a>
         </div>
+
+
+        <Anchor
+          direction="horizontal"
+          items={[
+            {
+              key: 'home',
+              href: '#home',
+              title: 'home'
+            },
+            {
+              key: 'myTechStack',
+              href: '#myTechStack',
+              title: 'myTechStack'
+            },
+
+            {
+              key: 'projects',
+              href: '#projects',
+              title: 'projects'
+            }
+          ]}
+        />
+
       </nav>
       <div className="px-16 lg:px-5">
         <Header />
         <TechStack />
-        <Repos />
         <Projects />
       </div>
     </div>

@@ -21,7 +21,7 @@ const projects: Prop[] = [
   {
     name: 'Learning language',
     src: 'https://learninglanguagee.netlify.app/',
-    techs: ['Next', 'MUI', 'Ant Design']
+    techs: ['React', 'MUI', 'Ant Design', 'data-aos']
   },
   {
     name: 'sudoku',
@@ -32,20 +32,22 @@ const projects: Prop[] = [
 
 export const Projects: React.FC = () => {
   return (
-    <div id="projects" className="transition-all section flex flex-col justify-center">
+    <div id="projects" className="transition-all h-full section flex flex-col justify-center">
       <div className="text-center font-bold text-4xl pb-10">My deployed project</div>
       <div className="flex flex-wrap justify-center gap-5">
         {projects.map((project: Prop) => (
-          <a href={project.src} target="_blank" data-aos="zoom-in" rel="noopener noreferrer">
-            <Card
-              title={project.name}
-              className="bg-gradient-to-r from-cyan-200 h-[200px] to-blue-200  shadow-lg w-[300px] md:w-[250px]  hover:scale-110	 transition-transform duration-500 "
-            >
-              {project.techs.map((tech: string) => (
-                <p>{tech}</p>
-              ))}
-            </Card>
-          </a>
+          <div key={project.src} className="">
+            <a href={project.src} target="_blank" data-aos="zoom-in" rel="noopener noreferrer">
+              <Card
+                title={project.name}
+                className="bg-gradient-to-r from-cyan-200 h-[200px] to-blue-200  shadow-lg w-[300px] md:w-[250px]  hover:scale-110	 transition-transform duration-500 "
+              >
+                {project.techs.map((tech: string) => (
+                  <p>{tech}</p>
+                ))}
+              </Card>
+            </a>
+          </div>
         ))}
       </div>
     </div>

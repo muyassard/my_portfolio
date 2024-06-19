@@ -2,15 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: #ecfeff;
+}
+
 html {
   scroll-snap-align: y mandatory;
   scroll-behavior: smooth;
 }
+
 @layer components {
   .section {
-    height: 100svh;
+    height: 100vh;
     scroll-snap-align: center;
   }
+
   .display {
     display: flex;
     align-items: center;
